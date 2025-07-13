@@ -23,19 +23,35 @@ button.addEventListener("click", function()
     .then(res => res.json())
     .then(data=>{
 
-        const temperature = data.current.temp_f;//you looked at the json format to come up with this btw
+        const temperatureF = data.current.temp_f;//you looked at the json format to come up with this btw
+        const temperatureC = data.current.temp_c;
         const condition = data.current.condition.text;
         const location = `${data.location.name}, ${data.location.region}`;
         const icon = data.current.condition.icon;
 
+        const uom = document.getElementById("uom");
+        const units = uom.value;
+
+
+        if(uom.checked)
+        {
         displayWeather.innerHTML = `
         <h3>Weather for ${location}: </h3>
-        <p>Temperature: ${temperature}</p>
+        <p>Temperature: ${temperatureC}</p>
         <p>Conditions: ${condition}</p>
         <img src = "https:${icon}" alt = ":(">
-        
-        
         `
+        }
+        else
+        {
+            displayWeather.innerHTML = `
+            <h3>Weather for ${location}: </h3>
+            <p>Temperature: ${temperatureF}</p>
+            <p>Conditions: ${condition}</p>
+            <img src = "https:${icon}" alt = ":(">
+            `
+
+        }
 
 
 
