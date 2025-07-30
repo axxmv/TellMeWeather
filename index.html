@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
+    <!--<style>
         body{
             background-color: rgb(142, 176, 235);
         }
@@ -13,11 +13,13 @@
         #getInfo
         {
             width: 1400px;
-            height: 600px;
+            height: 400px;
             display: flex;
-            flex-direction: column;
-            text-align: left;
+            flex-direction: row;
+            text-align: center;
+            align-items:flex-start;
             padding-top: 30px;
+            background-color: red;
 
 
         }
@@ -73,7 +75,163 @@
             text: aliceblue;
 
         }
-    </style>
+        #displayWeather{
+            width: 800px;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: blue;
+            transform: translateX(300px);
+            
+        }
+        #inner{
+            background-color: purple;
+            width: 100px;
+        }
+        #info{
+            background-color:aqua;
+            width: 400px;
+        }
+    </style>-->
+    <style>
+        /* Reset & base styles */
+        * {
+          box-sizing: border-box;
+          margin: 0;
+          padding: 0;
+          font-family: 'Segoe UI', sans-serif;
+        }
+      
+        body {
+          background: linear-gradient(to top right, #7eb6f5, #a2d4f5);
+          color: #fff;
+          min-height: 100vh;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+      
+        .header {
+          text-align: center;
+          margin-top: 50px;
+        }
+      
+        .header h1 {
+          font-size: 3.5rem;
+          color: #fefefe;
+          text-shadow: 2px 2px #4444aa66;
+        }
+      
+        #getInfo {
+          background: rgba(255, 255, 255, 0.15);
+          backdrop-filter: blur(10px);
+          padding: 30px;
+          margin-top: 30px;
+          border-radius: 20px;
+          box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 90%;
+          max-width: 600px;
+        }
+      
+        #getInfo input {
+          width: 80%;
+          padding: 10px;
+          margin-bottom: 15px;
+          border: none;
+          border-radius: 10px;
+          font-size: 1rem;
+        }
+      
+        #getInfo button {
+          width: 200px;
+          padding: 12px;
+          margin-top: 10px;
+          font-size: 1rem;
+          border: none;
+          border-radius: 30px;
+          color: white;
+          background-color: #685ba9;
+          cursor: pointer;
+          transition: background-color 0.3s;
+        }
+      
+        #getInfo button:hover {
+          background-color: #574b8f;
+        }
+
+#current_location:hover {
+  background-color: #574b8f;
+}
+      
+        #getInfo p {
+          margin: 10px 0;
+          font-weight: bold;
+        }
+      
+        label {
+          margin-top: 15px;
+          font-size: 1rem;
+        }
+      
+        input[type="checkbox"] {
+          transform: scale(1.3);
+          margin-right: 10px;
+        }
+      
+        #displayWeather {
+          margin-top: 40px;
+          text-align: center;
+          font-size: 1.2rem;
+          color: #fff;
+        }
+      
+        #displayWeather img {
+          margin-top: 10px;
+        }
+      
+        #forecastWeather {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: center;
+          margin: 30px auto;
+          gap: 20px;
+          max-width: 800px;
+        }
+      
+        #forecastWeather div {
+          background: rgba(255, 255, 255, 0.1);
+          padding: 15px;
+          border-radius: 15px;
+          text-align: center;
+          width: 140px;
+          color: #fff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+      
+        #forecastWeather div img {
+          width: 50px;
+          height: 50px;
+        }
+      
+        @media (max-width: 600px) {
+          .header h1 {
+            font-size: 2.2rem;
+          }
+      
+          #getInfo input, #getInfo button {
+            width: 100%;
+          }
+      
+          #forecastWeather {
+            flex-direction: column;
+            align-items: center;
+          }
+        }
+      </style>
 </head>
 <body>
     <div class = "header">
@@ -82,17 +240,21 @@
 
 
     <div id = "getInfo">
-    <input type = "text" placeholder = "Enter Your City" id = "cityInput">
-    <input type = "text" placeholder = "Enter Your State" id = "stateInput">
-    <button id = "getData"> Find Weather</button>
-    <p>OR</p>
-    <button id = "current_location" > Use current location</button>
-    
 
-    <label>
-        <input type = "checkbox" id = "uom">
-        Show temperature in celsius
-    </label>
+        <div id = info>
+            <input type = "text" placeholder = "Enter Your City" id = "cityInput">
+            <input type = "text" placeholder = "Enter Your State" id = "stateInput">
+            <button id = "getData"> Find Weather</button>
+        </div>
+
+        <div id = inner>
+            <button id = "current_location" > Use current location</button>
+        </div>
+
+        <label>
+            <input type = "checkbox" id = "uom">
+            Show temperature in celsius
+        </label>
 
     </div>
 
